@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
-import { Key, Eye, EyeOff, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import { Key, Eye, EyeOff, CheckCircle, XCircle, AlertTriangle, RefreshCw, Copy } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Progress } from '@/components/ui/progress';
+import { toast } from 'sonner';
 
 interface PasswordCriteria {
   label: string;
@@ -15,6 +16,59 @@ const PasswordChecker = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  // Function to generate a strong password
+  const generateStrongPassword = () => {
+    const length = 16;
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+    let password = "";
+    
+    // Ensure at least one of each required character type
+    password += "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(Math.floor(Math.random() * 26));
+    password += "abcdefghijklmnopqrstuvwxyz".charAt(Math.floor(Math.random() * 26));
+    password += "0123456789".charAt(Math.floor(Math.random() * 10));
+    password += "!@#$%^&*()_+~`|}{[]:;?><,./-=".charAt(Math.floor(Math.random() * 32));
+    
+    // Fill the rest randomly
+    for (let i = password.length; i < length; i++) {
+      password += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    
+    // Shuffle the password
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+    
+    return password;
+  };
+
+  // Handle password generation
+  const handleGeneratePassword = () => {
+    const newPassword = generateStrongPassword();
+    setPassword(newPassword);
+    
+    // Try to copy to clipboard
+    navigator.clipboard.writeText(newPassword).then(() => {
+      toast.success('Strong password generated!', {
+        description: 'Password has been copied to clipboard',
+      });
+    }).catch(() => {
+      // Fallback if clipboard fails
+      toast.success('Strong password generated!', {
+        description: 'You can copy it manually',
+      });
+    });
+  };
+
+  // Handle copying password to clipboard
+  const handleCopyPassword = () => {
+    if (password) {
+      navigator.clipboard.writeText(password).then(() => {
+        toast.success('Password copied to clipboard!');
+      }).catch(() => {
+        toast.error('Failed to copy password');
+      });
+    }
+  };
+
+  // Analyze password strength
   const analysis = useMemo(() => {
     const criteria: PasswordCriteria[] = [
       { label: 'At least 8 characters', met: password.length >= 8 },
@@ -35,6 +89,7 @@ const PasswordChecker = () => {
     return { criteria, score, strength };
   }, [password]);
 
+  // Get configuration based on password strength
   const getStrengthConfig = (strength: string) => {
     switch (strength) {
       case 'strong':
@@ -80,7 +135,7 @@ const PasswordChecker = () => {
           {/* Password Input Card */}
           <Card className="card-gradient border-border mb-8">
             <CardContent className="pt-6">
-              <div className="relative">
+              <div className="relative mb-4">
                 <Input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
@@ -97,6 +152,29 @@ const PasswordChecker = () => {
                 </button>
               </div>
 
+              {/* Generate Password Buttons */}
+              <div className="flex gap-2 mb-6">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleGeneratePassword}
+                  className="flex-1"
+                >
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                  Generate Strong Password
+                </Button>
+                {password && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleCopyPassword}
+                    className="px-4"
+                  >
+                    <Copy className="w-4 h-4" />
+                  </Button>
+                )}
+              </div>
+
               {password && (
                 <div className="mt-6 animate-fade-in">
                   {/* Strength Indicator */}
@@ -111,7 +189,7 @@ const PasswordChecker = () => {
                   </div>
 
                   {/* Progress Bar */}
-                  <div className="h-3 bg-secondary rounded-full overflow-hidden">
+                  <div className="h-3 bg-secondary rounded-full overflow-hidden mb-6">
                     <div
                       className={`h-full ${strengthConfig.progressColor} transition-all duration-500 ease-out`}
                       style={{ width: `${analysis.score}%` }}
@@ -119,7 +197,7 @@ const PasswordChecker = () => {
                   </div>
 
                   {/* Criteria List */}
-                  <div className="mt-6 space-y-3">
+                  <div className="space-y-3">
                     <h4 className="text-sm font-medium text-muted-foreground mb-3">
                       {t('password.tips')}:
                     </h4>
@@ -160,6 +238,10 @@ const PasswordChecker = () => {
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
                   Enable Two-Factor Authentication (2FA) wherever possible
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  Consider using a password manager like Bitwarden or 1Password
                 </li>
               </ul>
             </CardContent>

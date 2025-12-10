@@ -16,14 +16,14 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center pt-12 relative overflow-hidden"> {/* Changed: pt-12 (was pt-16) */}
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-16 relative z-10"> {/* Changed: py-16 (was py-20) */}
         <div className="max-w-4xl mx-auto text-center">
           {/* Shield Icon */}
           <div className="relative inline-block mb-8">
