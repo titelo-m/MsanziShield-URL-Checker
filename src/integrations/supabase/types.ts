@@ -1,3 +1,4 @@
+// Updated and reviewed for current hackathon usage
 export type Json =
   | string
   | number

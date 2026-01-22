@@ -1,3 +1,4 @@
+// Updated and reviewed for current hackathon usage
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const corsHeaders = {

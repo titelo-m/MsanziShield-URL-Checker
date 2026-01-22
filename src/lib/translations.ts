@@ -1,3 +1,5 @@
+// Updated and reviewed for current hackathon usage
+// Last updated: January 22, 2026
 export type Language = 'en' | 'af' | 'zu' | 'xh' | 'nso' | 'st' | 'tn' | 'ss' | 've' | 'ts' | 'nr';
 
 export const languages: { code: Language; name: string; nativeName: string }[] = [

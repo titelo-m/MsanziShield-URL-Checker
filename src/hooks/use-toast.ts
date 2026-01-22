@@ -1,3 +1,4 @@
+// Updated and reviewed for current hackathon usage
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";

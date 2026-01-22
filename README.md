@@ -1,5 +1,7 @@
 # MsanziShield - Cyber Safety for South Africans
 
+**Last updated: January 22, 2026**
+
 A comprehensive cybersecurity awareness platform designed specifically for South Africans, featuring AI-powered threat detection, scam reporting, and multilingual safety education.
 
 ## Features

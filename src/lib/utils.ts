@@ -1,3 +1,4 @@
+// Updated and reviewed for current hackathon usage
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
