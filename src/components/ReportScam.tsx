@@ -67,7 +67,7 @@ const ReportScam = () => {
   // Load reports from localStorage
   const loadReports = () => {
     try {
-      const savedReports = localStorage.getItem('esafemzansi_scam_reports');
+      const savedReports = localStorage.getItem('msanzishield_scam_reports');
       if (savedReports) {
         const parsedReports: ScamReport[] = JSON.parse(savedReports);
         setReports(parsedReports);
@@ -195,7 +195,7 @@ const ReportScam = () => {
       }
 
       setReports(updatedReports);
-      localStorage.setItem('esafemzansi_scam_reports', JSON.stringify(updatedReports));
+      localStorage.setItem('msanzishield_scam_reports', JSON.stringify(updatedReports));
       calculateStats(updatedReports);
       
       // Simulate real-time update for other tabs
@@ -222,7 +222,7 @@ const ReportScam = () => {
     });
     
     setReports(updatedReports);
-    localStorage.setItem('esafemzansi_scam_reports', JSON.stringify(updatedReports));
+    localStorage.setItem('msanzishield_scam_reports', JSON.stringify(updatedReports));
     calculateStats(updatedReports);
     
     toast.success('Report verified!', {
@@ -240,7 +240,7 @@ const ReportScam = () => {
     });
     
     setReports(updatedReports);
-    localStorage.setItem('esafemzansi_scam_reports', JSON.stringify(updatedReports));
+    localStorage.setItem('msanzishield_scam_reports', JSON.stringify(updatedReports));
     calculateStats(updatedReports);
     
     toast.info('Marked as false positive', {

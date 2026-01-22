@@ -37,7 +37,8 @@ const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button 
+          <a 
+            href="https://msanzishield.co.za" // Updated URL
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-2 group"
           >
@@ -46,9 +47,9 @@ const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
             </div>
             <span className="text-xl font-bold text-gradient-primary">
-              eSafeMzansi
+              MsanziShield
             </span>
-          </button>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">

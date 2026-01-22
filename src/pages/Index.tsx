@@ -70,7 +70,7 @@ const Index = () => {
         <footer className="border-t border-border py-8 mt-12"> {/* Reduced top margin */}
           <div className="container mx-auto px-4 text-center">
             <p className="text-muted-foreground text-sm">
-              Protecting South Africans online. eSafeMzansi
+              Protecting South Africans online. MsanziShield
             </p>
             <p className="text-muted-foreground/60 text-xs mt-2">
               Report scams to help others

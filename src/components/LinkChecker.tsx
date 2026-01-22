@@ -33,7 +33,7 @@ const LinkChecker = () => {
   // Load history from localStorage when component mounts
   useEffect(() => {
     try {
-      const savedHistory = localStorage.getItem('esafemzansi_check_history');
+      const savedHistory = localStorage.getItem('msanzishield_check_history');
       if (savedHistory) {
         const parsed = JSON.parse(savedHistory);
         // Convert string dates back to Date objects
@@ -51,7 +51,7 @@ const LinkChecker = () => {
   // Save history to localStorage
   const saveHistory = (history: CheckHistory[]) => {
     try {
-      localStorage.setItem('esafemzansi_check_history', JSON.stringify(history));
+      localStorage.setItem('msanzishield_check_history', JSON.stringify(history));
     } catch (error) {
       console.error('Error saving history:', error);
     }
@@ -145,7 +145,7 @@ const LinkChecker = () => {
   // Clear all history
   const clearHistory = () => {
     setCheckHistory([]);
-    localStorage.removeItem('esafemzansi_check_history');
+    localStorage.removeItem('msanzishield_check_history');
     toast.success('History cleared');
   };
 

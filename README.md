@@ -1,4 +1,4 @@
-# eSafeMzansi - Cyber Safety for South Africans
+# MsanziShield - Cyber Safety for South Africans
 
 A comprehensive cybersecurity awareness platform designed specifically for South Africans, featuring AI-powered threat detection, scam reporting, and multilingual safety education.
 
@@ -95,4 +95,4 @@ For issues, questions, or suggestions, please open an issue in the repository.
 
 ---
 
-**© 2025 eSafeMzansi. Protecting South Africans online.**
+**© 2026 MsanziShield. Protecting South Africans online.**
