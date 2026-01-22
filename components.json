@@ -3,6 +3,7 @@
   "style": "default",
   "rsc": false,
   "tsx": true,
+  "_note": "Reviewed and updated for current hackathon usage",
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "src/index.css",
