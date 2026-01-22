@@ -1,3 +1,4 @@
+// Reviewed and updated for current hackathon usage
 {
   "compilerOptions": {
     "target": "ES2022",
