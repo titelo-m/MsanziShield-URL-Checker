@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# eSafeMzansi - Cyber Safety for South Africans
 
-## Project info
+A comprehensive cybersecurity awareness platform designed specifically for South Africans, featuring AI-powered threat detection, scam reporting, and multilingual safety education.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Link Checker**: Analyze suspicious URLs for potential threats
+- **Password Checker**: Test password strength and vulnerability assessment
+- **Scam Reporting**: Report and view reported scams in your community
+- **Safety Tips**: Learn cyber safety best practices in your language
+- **Multilingual Support**: Available in English, Afrikaans, isiZulu, isiXhosa, Sepedi, Setswana, Tswana, siSwati, Tshivenda, and isiNdebele
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React with TypeScript
+- **Build Tool**: Vite
+- **UI Components**: shadcn-ui with Radix UI
+- **Styling**: Tailwind CSS
+- **Database**: Supabase
+- **Backend Functions**: Supabase Edge Functions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js & npm (install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd msanzishield
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Development
 
-**Use GitHub Codespaces**
+### Available Scripts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `npm run dev` - Start the development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build with development mode enabled
+- `npm run lint` - Run ESLint to check code quality
+- `npm run preview` - Preview the production build locally
 
-## What technologies are used for this project?
+## Project Structure
 
-This project is built with:
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn-ui components
+│   ├── Header.tsx
+│   ├── LinkChecker.tsx
+│   ├── PasswordChecker.tsx
+│   └── ...
+├── pages/              # Page components
+├── contexts/           # React Context for language
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions and translations
+├── integrations/       # External service integration (Supabase)
+└── styles/             # Global styles
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+### Build for Production
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```sh
+npm run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+The optimized build will be created in the `dist/` directory.
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+
+This project is built to protect and serve South Africans. Use it to spread cyber awareness and security.
+
+## Support
+
+For issues, questions, or suggestions, please open an issue in the repository.
+
+---
+
+**© 2025 eSafeMzansi. Protecting South Africans online.**

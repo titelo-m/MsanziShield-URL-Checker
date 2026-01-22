@@ -46,7 +46,7 @@ const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
             </div>
             <span className="text-xl font-bold text-gradient-primary">
-              MzanziShield
+              eSafeMzansi
             </span>
           </button>
 

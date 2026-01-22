@@ -70,18 +70,11 @@ const Index = () => {
         <footer className="border-t border-border py-8 mt-12"> {/* Reduced top margin */}
           <div className="container mx-auto px-4 text-center">
             <p className="text-muted-foreground text-sm">
-              © 2025 MzanziShield. Protecting South Africans online.
+              Protecting South Africans online. eSafeMzansi
             </p>
             <p className="text-muted-foreground/60 text-xs mt-2">
-              Built with 🛡️ for Cybertech Hackathon | Report scams to help others
+              Report scams to help others
             </p>
-            <div className="flex justify-center gap-4 mt-4 text-xs text-muted-foreground/60">
-              <span>Privacy Policy</span>
-              <span>•</span>
-              <span>Terms of Service</span>
-              <span>•</span>
-              <span>Contact Us</span>
-            </div>
           </div>
         </footer>
       </div>
