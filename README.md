@@ -1,100 +1,54 @@
 # MsanziShield - Cyber Safety for South Africans
 
-**Last updated: January 22, 2026**
+**Overview**
+MsanziShield is a South Africa-focused cybersecurity platform designed to protect everyday users from online scams, phishing messages and weak account security. It combines AI-powered link and message analysis, multilingual cyber safety tips and interactive community reporting features to create a simple, engaging and educational experience for users of all tech levels.
 
-A comprehensive cybersecurity awareness platform designed specifically for South Africans, featuring AI-powered threat detection, scam reporting, and multilingual safety education.
+**Motivation**
+With more South Africans going online for social media, banking and small business transactions, many users fall victim to scams, phishing links and unsafe password practices. Existing cybersecurity tools are often too global, complex or expensive. MsanziShield empowers users by providing accessible, localized and multilingual cyber safety tools, promoting safer online habits and community awareness.
 
-## Features
+**Features**
+*- AI-Powered Link & Message Safety Checker*
+  - Paste links or messages from WhatsApp, SMS, email, or social media.
+  - AI analyzes them for phishing, scams, or unsafe content, including local threats (SARS phishing, bank scams, fake job offers).
+*- Password Strength & Account Safety Checker*
+  - Real-time analysis of password strength with visual feedback.
+  - Provides tips for stronger, safer passwords.
+*- Cyber Safety Tips Dashboard*
+  - Bite-sized, practical advice tailored to South African users.
+  - Supports all 11 official South African languages: English, Afrikaans, isiZulu, isiXhosa, Sepedi, Sesotho, Setswana, siSwati, Tshivenḓa, Xitsonga, isiNdebele.
+*- Community Scam Reporting (Simulated)*
+  - Users can report suspicious links or messages.
+  - Displays metrics such as number of scans, reports, verified safe links, and accuracy percentages (session-based).
+*- Dark Cybersecurity Theme*
+  - Sleek, modern UI with amber/gold accents symbolizing protection.
+  - Fully responsive for desktop and mobile devices.
 
-- **Link Checker**: Analyze suspicious URLs for potential threats
-- **Password Checker**: Test password strength and vulnerability assessment
-- **Scam Reporting**: Report and view reported scams in your community
-- **Safety Tips**: Learn cyber safety best practices in your language
-- **Multilingual Support**: Available in English, Afrikaans, isiZulu, isiXhosa, Sepedi, Setswana, Tswana, siSwati, Tshivenda, and isiNdebele
+**Technologies Used**
+- React 18 – Frontend library
+- TypeScript – Code reliability and type safety
+- Vite – Fast build and dev server
+- Tailwind CSS – Modern, responsive styling
+- Framer Motion – Smooth UI animations
+- Lovable AI / Cloud – AI-powered link/message analysis
+- Edge Functions – Serverless threat analysis logic
+- Vercel – Hosting and deployment
 
-## Tech Stack
+**Live Demo**
+Try MsanziShield live: https://msanzi-shield-url-checker.vercel.app
 
-- **Frontend**: React with TypeScript
-- **Build Tool**: Vite
-- **UI Components**: shadcn-ui with Radix UI
-- **Styling**: Tailwind CSS
-- **Database**: Supabase
-- **Backend Functions**: Supabase Edge Functions
+**Current Status**
+- Fully functional front-end with AI-powered link checking and password analysis.
+- Multilingual support across all 11 South African languages.
+- Metrics are session-based for demonstration purposes.
+- Community reporting is simulated; no backend storage yet.
 
-## Getting Started
+**Future Improvements**
+- Decentralized Storage: Integrate IPFS and blockchain for community-reported scams.
+- Persistent Database: Track reported links across sessions and devices.
+- User Authentication: Optional accounts for tracking personal reports and preferences.
+- Expanded AI Intelligence: Add support for non-SA threats or region-specific fraud detection.
+- Offline Safety Guide: Provide downloadable tips and guidance for users without constant internet access.
 
-### Prerequisites
-
-- Node.js & npm (install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
-
-### Installation
-
-```sh
-# Clone the repository
-git clone <YOUR_GIT_URL>
-
-# Navigate to the project directory
-cd msanzishield
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-The application will be available at `http://localhost:8080`
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start the development server with hot reload
-- `npm run build` - Build for production
-- `npm run build:dev` - Build with development mode enabled
-- `npm run lint` - Run ESLint to check code quality
-- `npm run preview` - Preview the production build locally
-
-## Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── ui/             # shadcn-ui components
-│   ├── Header.tsx
-│   ├── LinkChecker.tsx
-│   ├── PasswordChecker.tsx
-│   └── ...
-├── pages/              # Page components
-├── contexts/           # React Context for language
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions and translations
-├── integrations/       # External service integration (Supabase)
-└── styles/             # Global styles
-```
-
-## Deployment
-
-### Build for Production
-
-```sh
-npm run build
-```
-
-The optimized build will be created in the `dist/` directory.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues or pull requests.
-
-## License
-
-This project is built to protect and serve South Africans. Use it to spread cyber awareness and security.
-
-## Support
-
-For issues, questions, or suggestions, please open an issue in the repository.
-
----
-
-**© 2026 MsanziShield. Protecting South Africans online.**
+**Author**
+Titelo Maleka
+Computer Science Student
