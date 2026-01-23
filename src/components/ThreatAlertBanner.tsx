@@ -97,7 +97,7 @@ const ThreatAlertBanner = () => {
                 {currentAlert.description}
               </AlertDescription>
               <div className="text-xs opacity-75 mt-1">
-                Updated {currentAlert.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                Updated {currentAlert.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}
               </div>
             </div>
             <div className="flex items-center gap-1 flex-shrink-0">

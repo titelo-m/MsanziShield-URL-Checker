@@ -489,7 +489,7 @@ const ReportScam = () => {
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="report" className="flex items-center gap-2">
                 <Flag className="w-4 h-4" />
-                Report a Scam
+                Mzansi Threat Pulse
               </TabsTrigger>
               <TabsTrigger value="view" className="flex items-center gap-2">
                 <Eye className="w-4 h-4" />
@@ -595,7 +595,7 @@ const ReportScam = () => {
                 <CardContent className="pt-6">
                   {reports.length === 0 ? (
                     <div className="text-center py-8 text-muted-foreground">
-                      <p className="mb-4">No reports yet. Be the first to report a scam!</p>
+                      <p className="mb-4">No reports yet. Be the first to use Mzansi Threat Pulse!</p>
                       <p className="text-sm">Reports are stored locally in your browser.</p>
                     </div>
                   ) : (

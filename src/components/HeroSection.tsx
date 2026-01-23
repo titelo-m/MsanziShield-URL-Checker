@@ -33,12 +33,12 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
 
           {/* Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-fade-in">
-            <span className="text-gradient-primary">{t('hero.title')}</span>
+            <span className="text-gradient-primary">Stay Safe Online</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
-            {t('hero.subtitle')}
+            MzansiShield protects everyday South Africans from online scams, phishing, and cyber threats
           </p>
 
           {/* Features List */}
