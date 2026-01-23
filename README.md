@@ -69,4 +69,5 @@ Try MsanziShield live: https://msanzi-shield-url-checker.vercel.app
 
 ## Author
 **Titelo Maleka**
+
 Computer Science Student
