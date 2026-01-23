@@ -10,20 +10,20 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
   const { t } = useLanguage();
 
   const features = [
-    'AI-Powered Threat Detection',
-    'South African Scam Database',
-    'Multilingual Support',
+    t('hero.features.ai') || 'AI-Powered Threat Detection',
+    t('hero.features.database') || 'South African Scam Database',
+    t('hero.features.multilingual') || 'Multilingual Support',
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-12 relative overflow-hidden"> {/* Changed: pt-12 (was pt-16) */}
+    <section className="min-h-screen flex items-center justify-center pt-12 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative z-10"> {/* Changed: py-16 (was py-20) */}
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Shield Icon */}
           <div className="relative inline-block mb-8">
@@ -33,12 +33,12 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
 
           {/* Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-fade-in">
-            <span className="text-gradient-primary">Stay Safe Online</span>
+            <span className="text-gradient-primary">{t('hero.title')}</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
-            MzansiShield protects everyday South Africans from online scams, phishing, and cyber threats
+            {t('hero.subtitle')}
           </p>
 
           {/* Features List */}

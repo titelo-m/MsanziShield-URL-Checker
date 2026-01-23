@@ -71,12 +71,12 @@ const PasswordChecker = () => {
   // Analyze password strength
   const analysis = useMemo(() => {
     const criteria: PasswordCriteria[] = [
-      { label: 'At least 8 characters', met: password.length >= 8 },
-      { label: 'Contains uppercase letter', met: /[A-Z]/.test(password) },
-      { label: 'Contains lowercase letter', met: /[a-z]/.test(password) },
-      { label: 'Contains a number', met: /[0-9]/.test(password) },
-      { label: 'Contains special character (!@#$%^&*)', met: /[!@#$%^&*(),.?":{}|<>]/.test(password) },
-      { label: 'At least 12 characters (recommended)', met: password.length >= 12 },
+      { label: t('password.criteria.length') || 'At least 8 characters', met: password.length >= 8 },
+      { label: t('password.criteria.uppercase') || 'Contains uppercase letter', met: /[A-Z]/.test(password) },
+      { label: t('password.criteria.lowercase') || 'Contains lowercase letter', met: /[a-z]/.test(password) },
+      { label: t('password.criteria.number') || 'Contains a number', met: /[0-9]/.test(password) },
+      { label: t('password.criteria.special') || 'Contains special character (!@#$%^&*)', met: /[!@#$%^&*(),.?":{}|<>]/.test(password) },
+      { label: t('password.criteria.length12') || 'At least 12 characters (recommended)', met: password.length >= 12 },
     ];
 
     const metCount = criteria.filter((c) => c.met).length;
@@ -87,7 +87,7 @@ const PasswordChecker = () => {
     else if (score >= 50) strength = 'medium';
 
     return { criteria, score, strength };
-  }, [password]);
+  }, [password, t]);
 
   // Get configuration based on password strength
   const getStrengthConfig = (strength: string) => {
@@ -161,7 +161,7 @@ const PasswordChecker = () => {
                   className="flex-1"
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Generate Strong Password
+                  {t('password.generate') || 'Generate Strong Password'}
                 </Button>
                 {password && (
                   <Button
@@ -225,23 +225,23 @@ const PasswordChecker = () => {
           {/* Tips Card */}
           <Card className="bg-secondary/30 border-border">
             <CardContent className="pt-6">
-              <h4 className="font-semibold mb-3 text-foreground">Pro Tips:</h4>
+              <h4 className="font-semibold mb-3 text-foreground">{t('password.proTips') || 'Pro Tips:'}</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Use a passphrase like "MyDogLoves2RunFast!" - easy to remember, hard to crack
+                  {t('password.tip1') || 'Use a passphrase like "MyDogLoves2RunFast!" - easy to remember, hard to crack'}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Never use the same password for your bank and social media
+                  {t('password.tip2') || 'Never use the same password for your bank and social media'}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Enable Two-Factor Authentication (2FA) wherever possible
+                  {t('password.tip3') || 'Enable Two-Factor Authentication (2FA) wherever possible'}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Consider using a password manager like Bitwarden or 1Password
+                  {t('password.tip4') || 'Consider using a password manager like Bitwarden or 1Password'}
                 </li>
               </ul>
             </CardContent>

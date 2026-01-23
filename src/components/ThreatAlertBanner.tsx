@@ -1,7 +1,8 @@
 import { AlertTriangle, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ThreatAlert {
   id: string;
@@ -12,39 +13,45 @@ interface ThreatAlert {
 }
 
 const ThreatAlertBanner = () => {
-  const [alerts] = useState<ThreatAlert[]>([
-    {
-      id: '1',
-      title: 'SARS Phishing Campaign Alert',
-      description: 'Increased reports of fake SARS refund SMS scams targeting South Africans. Do not click on links from unknown numbers.',
-      severity: 'high',
-      timestamp: new Date(Date.now() - 3600000),
-    },
-    {
-      id: '2',
-      title: 'Job Scam Warning',
-      description: 'New WhatsApp job scams asking for R100 registration fees. Legitimate employers never ask for payment upfront.',
-      severity: 'medium',
-      timestamp: new Date(Date.now() - 7200000),
-    },
-    {
-      id: '3',
-      title: 'Banking Phishing Update',
-      description: 'Fake FNB and Standard Bank SMS links circulating. Always verify URLs before entering credentials.',
-      severity: 'high',
-      timestamp: new Date(Date.now() - 10800000),
-    },
-    {
-      id: '4',
-      title: 'Lottery Scam Alert',
-      description: 'Fake lottery win notifications asking for personal details. Remember: if you didn\'t enter, you didn\'t win.',
-      severity: 'medium',
-      timestamp: new Date(Date.now() - 14400000),
-    },
-  ]);
-  
+  const { t } = useLanguage();
+  const [alerts, setAlerts] = useState<ThreatAlert[]>([]);
   const [currentAlertIndex, setCurrentAlertIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+
+  // Initialize alerts based on language
+  useEffect(() => {
+    const localizedAlerts: ThreatAlert[] = [
+      {
+        id: '1',
+        title: t('alerts.sars.title') || 'SARS Phishing Campaign Alert',
+        description: t('alerts.sars.description') || 'Increased reports of fake SARS refund SMS scams targeting South Africans. Do not click on links from unknown numbers.',
+        severity: 'high',
+        timestamp: new Date(Date.now() - 3600000),
+      },
+      {
+        id: '2',
+        title: t('alerts.job.title') || 'Job Scam Warning',
+        description: t('alerts.job.description') || 'New WhatsApp job scams asking for R100 registration fees. Legitimate employers never ask for payment upfront.',
+        severity: 'medium',
+        timestamp: new Date(Date.now() - 7200000),
+      },
+      {
+        id: '3',
+        title: t('alerts.banking.title') || 'Banking Phishing Update',
+        description: t('alerts.banking.description') || 'Fake FNB and Standard Bank SMS links circulating. Always verify URLs before entering credentials.',
+        severity: 'high',
+        timestamp: new Date(Date.now() - 10800000),
+      },
+      {
+        id: '4',
+        title: t('alerts.lottery.title') || 'Lottery Scam Alert',
+        description: t('alerts.lottery.description') || 'Fake lottery win notifications asking for personal details. Remember: if you didn\'t enter, you didn\'t win.',
+        severity: 'medium',
+        timestamp: new Date(Date.now() - 14400000),
+      },
+    ];
+    setAlerts(localizedAlerts);
+  }, [t]);
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
@@ -81,11 +88,11 @@ const ThreatAlertBanner = () => {
   const currentAlert = alerts[currentAlertIndex];
 
   return (
-    <div className="w-full sticky top-16 z-40"> {/* Changed: sticky positioning and reduced spacing */}
-      <div className="container mx-auto px-4 py-2"> {/* Changed: py-2 (was py-3) */}
+    <div className="w-full sticky top-16 z-40">
+      <div className="container mx-auto px-4 py-2">
         <Alert className={`relative ${getSeverityColor(currentAlert.severity)} border animate-fade-in shadow-md`}>
           <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex-shrink-0"> {/* Adjusted margin */}
+            <div className="mt-0.5 flex-shrink-0">
               <span className="text-lg">{getSeverityIcon(currentAlert.severity)}</span>
             </div>
             <div className="flex-1 min-w-0">
@@ -97,7 +104,7 @@ const ThreatAlertBanner = () => {
                 {currentAlert.description}
               </AlertDescription>
               <div className="text-xs opacity-75 mt-1">
-                Updated {currentAlert.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}
+                {t('alerts.updated') || 'Updated'} {currentAlert.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}
               </div>
             </div>
             <div className="flex items-center gap-1 flex-shrink-0">
